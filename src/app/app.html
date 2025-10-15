@@ -1,0 +1,52 @@
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4 shadow">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold" href="#">Employee Management</a>
+    <span class="ms-3">
+      <span *ngIf="apiStatus === 'checking'" class="badge bg-secondary">Checking API...</span>
+      <span *ngIf="apiStatus === 'online'" class="badge bg-success">API Online</span>
+      <span *ngIf="apiStatus === 'offline'" class="badge bg-danger">API Offline</span>
+    </span>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/" routerLinkActive="active">Employee List</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/add" routerLinkActive="active">Add Employee</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div *ngIf="showApiErrorToast" class="toast show fade align-items-center text-bg-danger border-0 mx-auto mt-3" role="alert" aria-live="assertive" aria-atomic="true" style="max-width: 400px; transition: opacity 0.5s;">
+  <div class="d-flex">
+    <div class="toast-body">
+      {{ apiErrorMessage }}
+    </div>
+    <button type="button" class="btn-close btn-close-white me-2 m-auto" aria-label="Close" (click)="showApiErrorToast = false"></button>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-10">
+      <div class="page-header text-center mb-4">
+        <h1 class="display-5 fw-bold text-primary">Welcome to Employee Management</h1>
+        <p class="lead text-secondary">Manage your employees efficiently with a modern, clean interface.</p>
+      </div>
+      <div class="card shadow-sm mb-5">
+        <div class="card-body bg-light">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
