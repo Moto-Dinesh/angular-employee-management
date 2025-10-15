@@ -13,7 +13,7 @@
 
 ### 1. Clone the repository
 ```sh
-git clone https://github.com/YOUR_USERNAME/angular-employee-management.git
+git clone https://github.com/Moto-Dinesh/angular-employee-management.git
 cd angular-employee-management
 ```
 
